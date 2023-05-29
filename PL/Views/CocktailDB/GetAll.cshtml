@@ -1,0 +1,92 @@
+﻿@model ML.Cocktail
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <section>
+        <h2>Cocteles</h2>
+        <p>
+            En este modulo puedes visualizar y consultar los cocteles existentes<br />
+        </p>
+    </section>
+    <hr />
+    <div class="container-fluid">
+        @using (Html.BeginForm("GetAll", "CocktailDB", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Nombre)
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-arrow-right-short"></i></span>
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombre" , @onkeypress="SoloLetras(event, 'txtNombre', 'lblNombre')" })
+                        @Html.ValidationMessageFor(model => model.Nombre, null, new {@class="text-danger"})
+                        @Html.Label(null, "", new{@id="lblNombre"})
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Ingrediente)
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-arrow-right-short"></i></span>
+                        @Html.TextBoxFor(model => model.Ingrediente, new { @class = "form-control", @id = "txtNombre" , @onkeypress="SoloLetras(event, 'txtNombre', 'lblNombre')" })
+                        @Html.ValidationMessageFor(model => model.Ingrediente, null, new {@class="text-danger"})
+                        @Html.Label(null, "", new{@id="lblNombre"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="submit" value="Buscar" class="btn btn-info" />
+
+                </div>
+
+            </div>
+
+        }
+    </div>
+    <section>
+
+        <div class="row">
+            @foreach (ML.Cocktail cocktail in Model.Drinks)
+            {
+
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        @if (cocktail.strImageSource == null || cocktail.strImageSource == "")
+                        {
+                            <img class="card-img-top" id="Img" src="@cocktail.strImageSource" alt="Card image cap" />
+                        }
+                        else
+                        {
+                            <img class="card-img-top" id="Img" src="@cocktail.strImageSource" alt="Card image cap" />
+                        }
+                        <div class="card-body ">
+                            <h5 class="card-title card-header text-center bg-transparent" id="Nombre">@cocktail.strDrink</h5>
+                            <p class="card-text" id="Ingrediente"> Ingredientes: </p>
+                            <p class="card-text" id="Ingrediente"> @cocktail.strIngredient1</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient2</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient3</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient4</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient5</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient6</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient7</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient8</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient9</p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient10</p>
+@*                            <p class="card-text" id="Stock"> Stock: @cocktail.</p>
+                            <p class="card-text" id="Descripcion"> Descripcion: @cocktail.Descripcion</p>
+
+                            <p class="card-text" id="Proveedor"> Proveedor: @cocktail.Proveedor.Nombre</p>
+                            <p class="card-text" id="Area"> Area: @cocktail.Area.Nombre</p>
+                            <p class="card-text" id="Departamento"> Departamento: @cocktail.Departamento.Nombre</p>*@
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    </section>
+</div>

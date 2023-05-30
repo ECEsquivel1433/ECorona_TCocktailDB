@@ -54,20 +54,14 @@
 
                 <div class="col-3">
                     <div class="card" style="width: 18rem;">
-                        @if (cocktail.strImageSource == null || cocktail.strImageSource == "")
-                        {
-                            <img src="@cocktail.strImageSource" class="card-img-top" id="Img" alt="Card image cap" />
-                        }
-                        else
-                        {
-                            <img src="@cocktail.strImageSource" class="card-img-top" id="Img" alt="Card image cap" />
-                        }
+                        <img class=" card-img-top">
+                        <img src=@cocktail.strDrinkThumb >
                         <div class="card-body ">
                             <h5 class="card-title card-header text-center bg-transparent" id="Nombre">@cocktail.strDrink</h5>
                             <p class="card-text" id="Ingrediente"> Ingredientes: </p>
-                            <p class="card-text" id="Ingrediente"> @cocktail.strIngredient1</p>
-                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient2</p>
-                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient3</p>
+                            <p class="card-text" id="Ingrediente"> @cocktail.strIngredient1 + <img src="www.thecocktaildb.com/images/ingredients/" + @cocktail.strIngredient1 + "-Small.png"> </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient2 </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient3  </p>
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient4</p>
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient5</p>
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient6</p>

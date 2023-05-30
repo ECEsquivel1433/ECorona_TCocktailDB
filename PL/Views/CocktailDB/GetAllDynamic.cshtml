@@ -1,0 +1,78 @@
+﻿@model ML.Cocktail
+@{
+    ViewBag.Title = "GetAllDynamic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <section>
+        <h2>Cocteles</h2>
+        <p>
+            En este modulo puedes visualizar y consultar los cocteles existentes<br />
+        </p>
+    </section>
+    <hr />
+    <div class="container-fluid">
+        @using (Html.BeginForm("GetAll", "CocktailDB", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+                <div class="row">
+                    <div class="col-md-3">
+                    @Html.LabelFor(model => model.Nombre)
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-arrow-right-short"></i></span>
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombre" , @onkeypress="SoloLetras(event, 'txtNombre', 'lblNombre')" })
+                        @Html.ValidationMessageFor(model => model.Nombre, null, new {@class="text-danger"})
+                        @Html.Label(null, "", new{@id="lblNombre"})
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    @Html.LabelFor(model => model.Ingrediente)
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-arrow-right-short"></i></span>
+                        @Html.TextBoxFor(model => model.Ingrediente, new { @class = "form-control", @id = "txtNombre" , @onkeypress="SoloLetras(event, 'txtNombre', 'lblNombre')" })
+                        @Html.ValidationMessageFor(model => model.Ingrediente, null, new {@class="text-danger"})
+                        @Html.Label(null, "", new{@id="lblNombre"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Buscar" class="btn btn-info" />
+
+                    </div>
+
+                </div>
+
+        }
+    </div>
+    <section>
+
+        <div class="row">
+            @foreach (ML.Cocktail cocktail in Model.Drinks)
+            {
+
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class=" card-img-top">
+                            <img src=@cocktail.strDrinkThumb >
+                            <div class="card-body ">
+                                <h5 class="card-title card-header text-center bg-transparent" id="Nombre">@cocktail.strDrink</h5>
+                                <p class="card-text" id="Ingrediente"> Ingredientes: </p>
+                            <p class="card-text" id="Ingrediente"> @cocktail.Ingredient1 <img src=@cocktail.strIngredient1> </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient2 <img src=@cocktail.strIngredient2> </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient3 <img src=@cocktail.strIngredient3> </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient4 <img src=@cocktail.strIngredient4> </p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient5 <img src=@cocktail.strIngredient5></p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient6 <img src=@cocktail.strIngredient6></p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient7 <img src=@cocktail.strIngredient7></p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient8 <img src=@cocktail.strIngredient8></p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient9 <img src=@cocktail.strIngredient9></p>
+                            <p class="card-text" id="PrecioUnitario"> @cocktail.Ingredient10 <img src=@cocktail.strIngredient10></p>
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </section>
+</div>

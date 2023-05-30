@@ -20,6 +20,16 @@
         public dynamic strInstructionsZH_HANS { get; set; } = default!;
         public dynamic strInstructionsZH_HANT { get; set; } = default!;
         public dynamic strDrinkThumb { get; set; } = default!;
+        public string Ingredient1 { get; set; } = default!;
+        public string Ingredient2 { get; set; } = default!;
+        public string Ingredient3 { get; set; } = default!;
+        public string Ingredient4 { get; set; } = default!;
+        public string Ingredient5 { get; set; } = default!;
+        public string Ingredient6 { get; set; } = default!;
+        public string Ingredient7 { get; set; } = default!;
+        public string Ingredient8 { get; set; } = default!;
+        public string Ingredient9 { get; set; } = default!;
+        public string Ingredient10 { get; set; } = default!;
         public dynamic strIngredient1 { get; set; } = default!;
         public dynamic strIngredient2 { get; set; } = default!;
         public dynamic strIngredient3 { get; set; } = default!;

@@ -1,6 +1,6 @@
 ﻿@model ML.Cocktail
 @{
-    ViewBag.Title = "GetAll";
+    ViewBag.Title = "GetAllDynamic";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -56,11 +56,11 @@
                     <div class="card" style="width: 18rem;">
                         @if (cocktail.strImageSource == null || cocktail.strImageSource == "")
                         {
-                            <img class="card-img-top" id="Img" src="@cocktail.strImageSource" alt="Card image cap" />
+                            <img src="@cocktail.strImageSource" class="card-img-top" id="Img" alt="Card image cap" />
                         }
                         else
                         {
-                            <img class="card-img-top" id="Img" src="@cocktail.strImageSource" alt="Card image cap" />
+                            <img src="@cocktail.strImageSource" class="card-img-top" id="Img" alt="Card image cap" />
                         }
                         <div class="card-body ">
                             <h5 class="card-title card-header text-center bg-transparent" id="Nombre">@cocktail.strDrink</h5>
@@ -75,12 +75,6 @@
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient8</p>
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient9</p>
                             <p class="card-text" id="PrecioUnitario"> @cocktail.strIngredient10</p>
-@*                            <p class="card-text" id="Stock"> Stock: @cocktail.</p>
-                            <p class="card-text" id="Descripcion"> Descripcion: @cocktail.Descripcion</p>
-
-                            <p class="card-text" id="Proveedor"> Proveedor: @cocktail.Proveedor.Nombre</p>
-                            <p class="card-text" id="Area"> Area: @cocktail.Area.Nombre</p>
-                            <p class="card-text" id="Departamento"> Departamento: @cocktail.Departamento.Nombre</p>*@
                         </div>
                     </div>
                 </div>
